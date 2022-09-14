@@ -6,8 +6,32 @@ const db = require('./models');
     await db.sequelize.authenticate();
     console.log('Connection was successful');
   } catch (error) {
-    console.log('Our error:', error )
+    console.log('Authenticate error:', error.message);
   }
+
+
+  // Create customer with bcrypt password
+  try {
+    const customer = await db.Customer.create({
+      name: 'Sophia Vivi',
+      email: 'vivi@gmail.com',
+      password: '14258tyyjhg'
+    })
+  } catch (error) {
+    console.log('Customer didn`t creat:', error.message);
+  }
+
+  // try {
+  //   await db.sequelize.sync({ alter: true });
+  // } catch (error) {
+  //   console.log('Sync error:', error.message);
+  // }
+
+  // try {
+  //   await db.sequelize.drop({ cascade: true })
+  // } catch (error) {
+  //   console.log('Drop error:', error.message);
+  // }
 
   // 1. Get all from table
         // const brandsAll = await db.Brand.findAll({

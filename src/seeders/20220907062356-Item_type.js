@@ -1,34 +1,10 @@
 'use strict';
 
+const { item_types } = require('../constants/item_type-db');
+
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Item_types', [
-      {
-        title: 'Laptop',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        title: 'Vase',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        title: 'Refrigerator',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        title: 'Lamp',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        title: 'Sneakers',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      }
-    ], {});
+    await queryInterface.bulkInsert('Item_types', item_types, {});
   },
 
   async down (queryInterface, Sequelize) {

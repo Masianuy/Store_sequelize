@@ -1,34 +1,10 @@
 'use strict';
 
+const { item_categories } = require('../constants/item_categories-db');
+
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Item_categories', [
-      {
-        title: 'Computers & Software',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        title: 'Household appliances',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        title: 'Electronics',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        title: 'Interior Accessories',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        title: 'Sporting goods',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      }
-    ], {});
+    await queryInterface.bulkInsert('Item_categories', item_categories, {});
   },
 
   async down (queryInterface, Sequelize) {

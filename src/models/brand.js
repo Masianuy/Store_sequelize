@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Brand.hasMany(models.Item);
+      Brand.hasMany(models.Product_model);
     }
   }
   Brand.init({
@@ -23,6 +24,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Brand',
+    tableName: 'Brands',
+    timestamps: false,
+    underscored: true
   });
   return Brand;
 };
